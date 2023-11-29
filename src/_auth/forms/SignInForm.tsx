@@ -27,7 +27,7 @@ const SignInForm = () => {
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   const navigate = useNavigate();
 
-  const {mutateAsync: signInAccount, isPending} = useSignInAccount();
+  const {mutateAsync: signInAccount} = useSignInAccount();
 
 
   const form = useForm<z.infer<typeof SigninValidation>>({
@@ -47,7 +47,7 @@ const SignInForm = () => {
    })
    if(!session){ 
     return   toast({
-      title: "Sign up failed. Please try again.",
+      title: "Sign in failed. Please try again.",
      
     })
    }
@@ -67,7 +67,7 @@ const SignInForm = () => {
   
       <Form {...form}>
         <div className="sm:w-420 flex-center flex-col">
-          <img src="/assets/images/photo.svg" alt="logo" />
+          <img src="/assets/images/logo.svg" alt="logo" width={200} />
           <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">Login to your account</h2>
           <p className="text-light-3 small-medium md:base-regular mt-2">Welcome back! Please enter your details</p>
      
